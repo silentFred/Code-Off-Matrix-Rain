@@ -7,11 +7,12 @@ public class Drop {
 
     public static final int MAX_LEN = 75;
     private Random rng = new Random();
-    private int velocity, length, x, y;
+    private int velocity, length, x, y, height;
     private char[][] text;
 
-    Drop(int x) {
+    Drop(int x, int y) {
         this.x = x;
+        this.height = y;
         length = getRandomInteger(3, MAX_LEN);
         text = createContent(length);
         velocity = getRandomInteger(0, 6);
@@ -55,6 +56,6 @@ public class Drop {
     }
 
     public boolean isOffScreen() {
-        return (y > Config.SCREEN_SIZE);
+        return (y > this.height);
     }
 }

@@ -17,7 +17,7 @@ public class Rain extends JPanel {
 
         drops = new Drop[(int) (drawSizeWidth / Config.FONT_SIZE)];
         for (int i = 0; i < drops.length; i++) {
-            drops[i] = new Drop(i * Config.FONT_SIZE);
+            drops[i] = new Drop(i * Config.FONT_SIZE, (int) drawSizeHeight);
         }
     }
 
@@ -42,7 +42,7 @@ public class Rain extends JPanel {
 
         for (int i = 0; i < drops.length; i++) {
             if (drops[i].isOffScreen()) {
-                drops[i] = new Drop(i * Config.FONT_SIZE);
+                drops[i] = new Drop(i * Config.FONT_SIZE, (int) drawSizeHeight);
             }
             drops[i].draw(g2);
         }
